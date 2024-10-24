@@ -1,13 +1,14 @@
 <script lang="ts">
-	export const prerender = true;
-
-	export let data;
-
 	import BlurFade from '$lib/components/BlurFade.svelte';
 	import Title from '$lib/components/Title.svelte';
 	import Video from '$lib/components/Video.svelte';
 	import { formatDate } from '$lib/utils';
 	import { MetaTags } from 'svelte-meta-tags';
+	interface Props {
+		data: any;
+	}
+
+	let { data }: Props = $props();
 
 	let BLUR_FADE_DELAY = 0.04;
 </script>

@@ -5,7 +5,8 @@
 	import { onNavigate } from '$app/navigation';
 	import { setupViewTransition } from 'sveltekit-view-transition';
 
-	export const prerender = true;
+	/** @type {{children?: import('svelte').Snippet}} */
+	let { children } = $props();
 
 	setupViewTransition();
 
@@ -23,7 +24,7 @@
 	inject({ mode: dev ? 'development' : 'production' });
 </script>
 
-<slot></slot>
+{@render children?.()}
 
 <style>
 	/* Disable default crossfade. */

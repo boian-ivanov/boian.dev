@@ -1,7 +1,11 @@
 <script lang="ts">
 	import { setupViewTransition } from 'sveltekit-view-transition';
 
-	export let width = 150;
+	interface Props {
+		width?: number;
+	}
+
+	let { width = 150 }: Props = $props();
 	const height = width * 1.12;
 
 	let stream: MediaProvider | null;
@@ -31,8 +35,8 @@
 		{width}
 		{height}
 		use:srcObject={stream}
-		on:mouseover={handlePlay}
-		on:focus={handlePlay}
+		onmouseover={handlePlay}
+		onfocus={handlePlay}
 		preload="auto"
 		muted
 		autoplay

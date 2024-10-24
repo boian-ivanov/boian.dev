@@ -1,7 +1,8 @@
 <script>
 	import { setupViewTransition } from 'sveltekit-view-transition';
 
-	export let multiLine = true;
+	/** @type {{multiLine?: boolean}} */
+	let { multiLine = true } = $props();
 
 	const { transition } = setupViewTransition();
 </script>
